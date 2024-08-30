@@ -4,6 +4,7 @@
 package test;
 
 import com.aizuda.bpm.engine.FlowLongEngine;
+import com.aizuda.bpm.engine.QueryService;
 import com.aizuda.bpm.engine.core.FlowCreator;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,6 +32,9 @@ public abstract class TestFlowLong {
 
     @Autowired
     protected FlowLongEngine flowLongEngine;
+
+    @Autowired
+    protected QueryService queryService;
 
     protected Long deployByResource(String resourceName, FlowCreator flowCreator) {
         return flowLongEngine.processService().deployByResource(resourceName, flowCreator, false);
